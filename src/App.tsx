@@ -1,74 +1,104 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Timeline } from './components/Timeline';
-import { ArrowDown, Code2 } from 'lucide-react';
+import { AnimatedSection } from './components/AnimatedSection';
 
 function App() {
-  return (
-    <div className="min-h-screen bg-black text-white selection:bg-cyan-500/30 selection:text-cyan-100 overflow-x-hidden">
+  const { scrollYProgress } = useScroll();
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
 
-      {/* Background Grid */}
-      {/* Background Grid & Noise */}
-      <div className="fixed inset-0 z-0 bg-noise pointer-events-none opacity-50"></div>
-      <div className="fixed inset-0 z-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+  return (
+    <div className="min-h-screen bg-black text-wrapped-white overflow-x-hidden cursor-crosshair">
+
+      {/* Dynamic Background */}
+      <div className="fixed inset-0 z-0 bg-noise opacity-20 pointer-events-none"></div>
+      <motion.div
+        style={{ y: backgroundY }}
+        className="fixed inset-0 z-0 opacity-20 pointer-events-none"
+      >
+        <div className="absolute top-20 left-10 w-96 h-96 bg-wrapped-lime rounded-full blur-[100px] mix-blend-screen animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-wrapped-pink rounded-full blur-[100px] mix-blend-screen animate-wobble" />
+      </motion.div>
+
+      {/* Header / Nav */}
+      <header className="fixed top-0 left-0 w-full z-50 p-6 mix-blend-difference">
+        <div className="flex justify-between items-center">
+          <span className="font-heading font-black text-2xl tracking-tighter text-white">
+            VASUDEV_2025
+          </span>
+          <div className="px-4 py-1 border-2 border-white rounded-full font-mono text-xs font-bold uppercase animate-pulse">
+            Recapping...
+          </div>
+        </div>
+      </header>
 
       {/* Hero Section */}
       <section className="relative h-screen flex flex-col items-center justify-center z-10 p-4 text-center overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 flex items-center gap-3 px-4 py-2 rounded-full bg-zinc-100 border border-zinc-200"
-        >
-          <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_#10b981]" />
-          <span className="font-mono text-sm text-secondary tracking-widest uppercase">System Online // 2025</span>
-        </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-heading text-[12vw] leading-[0.85] font-black text-black mb-12 tracking-tighter mix-blend-multiply"
-        >
-          THE ASCENT
-        </motion.h1>
+        <AnimatedSection direction="none" delay={0.2}>
+          <div className="relative inline-block">
+            <h1 className="font-heading text-[15vw] leading-[0.8] font-black text-wrapped-lime text-stroke-2 uppercase mb-4 drop-shadow-[8px_8px_0px_rgba(255,0,153,1)] hover:scale-105 transition-transform duration-300">
+              The<br />Ascent
+            </h1>
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              className="absolute -top-10 -right-10 w-32 h-32 md:w-48 md:h-48"
+            >
+              <svg viewBox="0 0 100 100" className="w-full h-full fill-wrapped-cyan">
+                <path id="curve" d="M 50 50 m -37 0 a 37 37 0 1 1 74 0 a 37 37 0 1 1 -74 0" fill="transparent" />
+                <text className="text-[12px] font-mono font-bold uppercase tracking-widest">
+                  <textPath href="#curve">
+                    • 2025 Tech Journey • Engineering •
+                  </textPath>
+                </text>
+              </svg>
+            </motion.div>
+          </div>
+        </AnimatedSection>
 
-        <motion.p
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-2xl md:text-3xl text-secondary max-w-3xl font-light leading-relaxed mb-24"
-        >
-          From <span className="text-black font-semibold">PHP Monoliths</span> to <span className="text-primary font-bold">Agentic AI</span>.
-          <br />
-          365 days of relentless engineering.
-        </motion.p>
+        <AnimatedSection delay={0.5} className="max-w-4xl mx-auto">
+          <p className="font-heading text-3xl md:text-5xl font-bold bg-white text-black p-4 inline-block transform -rotate-1 shadow-hard-pink mb-8">
+            PHP Monoliths <span className="text-wrapped-pink">→</span> Agentic AI
+          </p>
+          <div className="bg-wrapped-black border-2 border-wrapped-white p-6 transform rotate-1 max-w-2xl mx-auto shadow-hard-white">
+            <p className="font-mono text-lg md:text-xl leading-relaxed">
+              365 days of code. 50+ projects. One hell of a ride.
+              <br /><span className="text-wrapped-lime">SCROLL TO UNWRAP.</span>
+            </p>
+          </div>
+        </AnimatedSection>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="absolute bottom-12 flex flex-col items-center gap-4"
-        >
-          <span className="font-mono text-xs text-secondary/50 uppercase tracking-[0.2em] font-semibold">Scroll to Explore</span>
-          <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-zinc-300 to-transparent" />
-        </motion.div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="relative z-10 pb-32">
-        <h2 className="text-center text-4xl md:text-5xl font-bold mb-20 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
-          PROJECT LOG
-        </h2>
+      {/* Main Content Area */}
+      <main className="relative z-10 pb-40">
+
+        <div className="container mx-auto px-4 mb-20 text-center">
+          <AnimatedSection>
+            <h2 className="font-heading text-[8vw] font-black text-transparent text-stroke-white-1 opacity-50 select-none pointer-events-none">
+              YOUR TOP GENRES
+            </h2>
+          </AnimatedSection>
+        </div>
+
         <Timeline />
-      </section>
+
+      </main>
 
       {/* Footer */}
-      <footer className="relative z-10 py-12 border-t border-white/10 bg-black/50 backdrop-blur-lg text-center">
-        <p className="text-gray-500 font-mono text-sm">
-          INITIALIZED BY <span className="text-white">VASUDEV</span> // END OF LINE_
-        </p>
+      <footer className="relative z-10 py-20 bg-wrapped-lime text-black overflow-hidden">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="font-heading text-[12vw] leading-none font-black mb-8 opacity-90">
+            WRAPPED
+          </h2>
+          <p className="font-mono text-xl font-bold uppercase tracking-widest mb-8">
+            Created by Vasudev
+          </p>
+          <div className="inline-block p-4 bg-black text-white font-mono text-sm border-4 border-white transform hover:rotate-2 transition-transform cursor-pointer">
+            github.com/vasudev
+          </div>
+        </div>
       </footer>
 
     </div>
@@ -76,3 +106,4 @@ function App() {
 }
 
 export default App;
+
