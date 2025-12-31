@@ -1,4 +1,4 @@
-import { LucideIcon, Code2, Database, Brain, Rocket, Terminal, Layers, Mic, Briefcase, Globe, Cpu } from 'lucide-react';
+
 
 export interface Project {
     id: string;
