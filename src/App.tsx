@@ -95,9 +95,13 @@ function App() {
           <p className="font-mono text-xl font-bold uppercase tracking-widest mb-8">
             Created by Vasudev
           </p>
-          <div className="inline-block p-4 bg-wrapped-lime text-black font-mono text-sm border-4 border-black transform hover:rotate-2 transition-transform cursor-pointer shadow-hard border-black">
-            github.com/vasudev
-          </div>
+          <a
+            href="https://github.com/vasu-devs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block p-4 bg-wrapped-lime text-black font-mono text-sm border-4 border-black transform hover:rotate-2 transition-transform cursor-pointer shadow-hard border-black">
+            github.com/vasu-devs
+          </a>
         </div>
       </footer>
 
