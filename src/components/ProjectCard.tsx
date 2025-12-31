@@ -41,7 +41,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, type: "spring", bounce: 0.5 }}
       className={clsx(
-        "flex w-full mb-32 relative z-10",
+        "flex w-full mb-16 md:mb-32 relative z-10",
         isEven ? "justify-start" : "justify-end"
       )}
     >
@@ -75,7 +75,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <Zap className="w-8 h-8 fill-black text-black animate-wobble" />
         </div>
 
-        <h3 className="font-heading text-5xl font-black mb-4 uppercase leading-[0.85] tracking-tighter text-stroke-white-1">
+        <h3 className="font-heading text-3xl md:text-5xl font-black mb-4 uppercase leading-[0.85] tracking-tighter text-stroke-white-1">
           {project.title}
         </h3>
 

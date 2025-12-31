@@ -63,7 +63,7 @@ function App() {
           </p>
           <div className="bg-white border-4 border-black p-6 transform rotate-1 max-w-2xl mx-auto shadow-hard">
             <p className="font-mono text-lg md:text-xl leading-relaxed">
-              365 days of code. 50+ projects. One hell of a ride.
+              365 days of code. 20+ projects. One hell of a ride.
               <br /><span className="text-wrapped-lime">SCROLL TO UNWRAP.</span>
             </p>
           </div>

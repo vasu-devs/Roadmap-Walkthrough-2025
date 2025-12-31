@@ -130,7 +130,8 @@ export const projects: Project[] = [
         description: 'Turns GitHub profiles into an interactive code universe.',
         date: 'Oct 2025',
         tech: ['React', 'GitHub API', 'Visualization'],
-        category: 'web'
+        category: 'web',
+        link: 'https://mapmyrepo.vasudev.live'
     },
     {
         id: 'asciirealtime',
