@@ -32,10 +32,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   const rotateValue = isEven ? 2 : -2;
 
   // Wrapped-style hard shadow color logic (opposite of card color for contrast)
-  const shadowClass =
-    cardColor === 'bg-wrapped-lime' ? 'shadow-hard-pink' :
-      cardColor === 'bg-wrapped-pink' ? 'shadow-hard-lime' :
-        cardColor === 'bg-wrapped-cyan' ? 'shadow-hard-yellow' : 'shadow-hard-cyan';
+  const shadowClass = 'shadow-hard';
 
   return (
     <motion.div

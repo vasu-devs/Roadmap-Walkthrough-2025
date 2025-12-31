@@ -16,10 +16,10 @@ export function Timeline() {
         <div ref={containerRef} className="relative container mx-auto px-4 py-20">
             {/* Central Line Background */}
             {/* Central Line Background */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-zinc-800/50">
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-zinc-200">
                 <motion.div
                     style={{ height }}
-                    className="w-full bg-wrapped-white shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+                    className="w-full bg-black shadow-[0_0_15px_rgba(0,0,0,0.5)]"
                 />
             </div>
 
