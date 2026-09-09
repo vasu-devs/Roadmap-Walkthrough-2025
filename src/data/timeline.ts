@@ -131,7 +131,7 @@ export const projects: Project[] = [
         date: 'Oct 2025',
         tech: ['React', 'GitHub API', 'Visualization'],
         category: 'web',
-        link: 'https://mapmyrepo.vasudev.live'
+        link: 'https://mapmyrepo.siddhvasudev.com'
     },
     {
         id: 'asciirealtime',
@@ -140,7 +140,7 @@ export const projects: Project[] = [
         date: 'Oct 2025',
         tech: ['Java', 'Web'],
         category: 'web',
-        link: 'https://asciicamera.vasudev.live'
+        link: 'https://asciicamera.siddhvasudev.com'
     },
     {
         id: 'leetbot',
@@ -189,7 +189,7 @@ export const projects: Project[] = [
         date: 'Dec 2025',
         tech: ['Next.js', 'DAG', 'AI'],
         category: 'agentic',
-        link: 'https://branchgpt.vasudev.live'
+        link: 'https://branchgpt.siddhvasudev.com'
     },
     {
         id: 'portfolio',
@@ -198,6 +198,6 @@ export const projects: Project[] = [
         date: 'Dec 2025',
         tech: ['React', 'Vite', 'Tailwind'],
         category: 'web',
-        link: 'https://vasudev.live'
+        link: 'https://siddhvasudev.com'
     }
 ];
